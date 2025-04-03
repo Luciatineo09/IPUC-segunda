@@ -1,0 +1,61 @@
+
+/* Estilos del menu */
+/** Para que la barra de vanegación al hacer escroll acompañere al usuario */
+nav{
+    backdrop-filter: blur(5px);
+    position: sticky;
+    top: 0px;
+    animation: adjust-header linear both;
+    animation-timeline: scroll();
+    animation-range: 0 90vh;
+    z-index: 2;
+}
+@keyframes adjust-header {
+    to{
+        background: rgba(2, 99, 164, 0.5);
+        font-size: 12px;
+        height: 90px;
+        border-radius: 0;
+    }
+}
+/* color de fondo principal para todas la paginas */
+main{
+    background-color: #f6f4f4;
+}
+
+/* --------------- logo -----------*/
+.logo img{
+    width: 100px;
+    margin: 15%;
+    
+}
+
+.menu{
+    display: flex;
+    background-color: #004e97;
+    align-items: center;
+
+}
+
+.menu-ul{
+    margin: 0;
+    display: flex;
+    cursor: pointer;
+    margin: 0 1.5% 0 1.5%;
+}
+
+.menu-ul li{
+    padding: 1rem;
+    list-style: none;
+}
+
+.menu-a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.menu-ul li:hover{
+    background-color: #1b73c5;
+}   
