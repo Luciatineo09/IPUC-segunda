@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    font-family:  "Montserrat", sans-serif;
+    box-sizing: border-box;
+
+}
+/* Estilos del menu */
+/** Para que la barra de vanegación al hacer escroll acompañere al usuario */
+nav{
+    backdrop-filter: blur(5px); /*? Aplica un desenfoque al fondo que está detrás del elemento nav*/
+    position: sticky; /*? Esto hace que la barra se quede "pegada" arriba de la pantalla cuando haces scroll */
+    top: 0px;
+    animation: adjust-header linear both; 
+    /*? Está aplicando una animación llamada adjust-header. 
+    /*? linear: La animación cambia a una velocidad constante. 
+    /*? both: Aplica los estilos de la animación tanto al inicio como al final (antes y después de animar).*/
+
+    animation-timeline: scroll(); /*?La animación se activa según el scroll del usuario. En lugar de que corra por segundos, corre a medida que haces scroll en la página. */
+    animation-range: 0 90vh; /*? Define el rango donde ocurre la animación.*/
+    z-index: 2;  /*? Coloca el nav por encima de elementos con menor z-index, útil para asegurarte de que no quede oculto por otros elementos.*/
+
+}
+@keyframes adjust-header {
+    /*? Solo tiene un estado final (to), que se aplicará al terminar el rango de scroll (cuando llegas a 90vh).*/
+    to{
+        background: rgba(2, 99, 164, 0.5);
+        font-size: 12px;
+        height: 90px;
+        border-radius: 0;
+        text-shadow: 1px 2px 3px black;
+    }
+}
+/* color de fondo principal para todas la paginas */
+body{
+    background-color: #f6f4f4;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+/* --------------- logo -----------*/
+.logo img{
+    width: 110px;
+    padding: 10px;
+}
+
+.menu{
+    display: flex;
+    height: 80px;
+    width: 100%;
+    background: #004e97;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px 0 100px;
+    flex-wrap: wrap;
+}
+
+.menu-ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.menu-ul li{
+    margin: 0 5px;
+}
+
+.menu-a {
+    color: #ffff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    transition: all .3s ease;
+}
+
+nav .menu-btn i{
+    color: #ffff;
+    font-size: 25px;
+    cursor: pointer;
+    display: none;
+}
+input[type="checkbox"]{
+    display: none;
+}
+
+.active{
+   background-color: #1b73c5;
+}
+
+nav ul li a:hover{
+    background: #fff;
+    color: #004e97;
+}
+
+@media(max-width:1000px){
+    nav{
+        padding: 0 40px 0 50px;
+    }
+}
+
+@media(max-width: 930px){
+    nav .menu-btn i{
+        display: block;
+    }
+    #click:checked ~ .menu-btn i::before {
+        content: '\f00d';
+    }
+
+    .menu-ul{
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        background-color: #004e97;
+        height: 40vh;
+        width: 100%;
+        text-align: center;
+        display: block;
+        transition: all 0.03s ease;
+    }
+
+    #click:checked ~ul {
+        left: 0;
+    }
+    
+    .menu-ul li{
+        width: 100%;
+        margin: 30px 0;
+    }
+
+    .menu-a {
+        width: 100%;
+        margin-left: -100%;
+        display: block;
+        font-size: 20px;
+        transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    #click:checked ~ ul li a{
+        margin-left: 0;
+    }
+
+    nav ul li a .active{
+        background: none;
+        color: #fbbb04;
+    }
+    .active{
+        background: none;
+        color: #fbbb04;
+    }
+}
+
+
+
